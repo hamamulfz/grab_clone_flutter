@@ -41,19 +41,19 @@ class _LoginScreenState extends State<LoginScreen> {
                 opacity: isKeyboardShowing ? 1.0 : 0.0,
               ),
             ),
-              Padding(
-                padding: EdgeInsets.only(
-                  left: fivePercentWidth(context),
-                ),
-                child: Opacity(
-                  child: Image(
-                    width: 150,
-                    color: Colors.white,
-                    image: AssetImage("assets/images/grab.png"),
-                  ),
-                  opacity: isKeyboardShowing ? 0.0 : 1.0,
-                ),
+            Padding(
+              padding: EdgeInsets.only(
+                left: fivePercentWidth(context),
               ),
+              child: Opacity(
+                child: Image(
+                  width: 150,
+                  color: Colors.white,
+                  image: AssetImage("assets/images/grab.png"),
+                ),
+                opacity: isKeyboardShowing ? 0.0 : 1.0,
+              ),
+            ),
             Spacer(),
             Padding(
               padding: EdgeInsets.only(
@@ -134,7 +134,9 @@ class _LoginScreenState extends State<LoginScreen> {
             Container(
               width: double.infinity,
               padding: EdgeInsets.only(
-                bottom: isKeyboardShowing ? 0 : MediaQuery.of(context).viewPadding.bottom,
+                bottom: isKeyboardShowing
+                    ? 0
+                    : MediaQuery.of(context).viewPadding.bottom,
               ),
               color: isKeyboardShowing
                   ? Theme.of(context).primaryColor
@@ -146,12 +148,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         "Continue",
                         style: kGrabWhiteRegularSmall,
                       )),
-                      onPressed: isKeyboardShowing
-                          ? () {
-                              Navigator.of(context)
-                                  .pushNamed(VerificationScreen.id);
-                            }
-                          : null,
+                      onPressed: () {
+                        Navigator.of(context).pushNamed(VerificationScreen.id);
+                      },
                     )
                   : Row(
                       children: <Widget>[
