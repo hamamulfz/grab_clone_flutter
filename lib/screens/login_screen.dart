@@ -1,7 +1,14 @@
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:grab_clone/constant.dart';
+import 'package:grab_clone/screens/splash_screen.dart';
 import 'package:grab_clone/screens/verification_screen.dart';
+import 'package:grab_clone/widgets/five_percent_padding.dart';
+import 'package:grab_clone/widgets/grab_button_login_social_media.dart';
+import 'package:grab_clone/widgets/grab_continue_button.dart';
+import 'package:grab_clone/widgets/grab_logo.dart';
+import 'package:grab_clone/widgets/grab_select_country.dart';
+import 'package:grab_clone/widgets/grab_social_media_and_continue.dart';
 
 class LoginScreen extends StatefulWidget {
   static const String id = "login_screen";
@@ -26,7 +33,6 @@ class _LoginScreenState extends State<LoginScreen> {
               padding: EdgeInsets.only(
                 top: MediaQuery.of(context).viewPadding.top,
                 left: fivePercentWidth(context),
-                // bottom: 50,
               ),
               child: Opacity(
                 child: IconButton(
@@ -41,60 +47,33 @@ class _LoginScreenState extends State<LoginScreen> {
                 opacity: isKeyboardShowing ? 1.0 : 0.0,
               ),
             ),
-            Padding(
-              padding: EdgeInsets.only(
-                left: fivePercentWidth(context),
-              ),
+            FivePercentPadding(
               child: Opacity(
-                child: Image(
-                  width: 150,
-                  color: Colors.white,
-                  image: AssetImage("assets/images/grab.png"),
-                ),
+                child: GrabLogo(),
                 opacity: isKeyboardShowing ? 0.0 : 1.0,
               ),
+              parent: context,
             ),
             Spacer(),
-            Padding(
-              padding: EdgeInsets.only(
-                left: fivePercentWidth(context),
-              ),
+            FivePercentPadding(
+              parent: context,
               child: Text(
                 "Welcome!",
                 style: kGrabWhiteBoldMedium,
               ),
             ),
-            Padding(
-              padding: EdgeInsets.only(
-                left: fivePercentWidth(context),
-              ),
+            FivePercentPadding(
               child: Text(
                 "Enter your mobile number to continue",
                 style: kGrabWhiteRegularSmall,
               ),
+              parent: context,
             ),
             SizedBox(height: 40),
-            Padding(
-              padding: EdgeInsets.only(
-                left: fivePercentWidth(context),
-              ),
+            FivePercentPadding(
               child: Row(
                 children: <Widget>[
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5),
-                      color: Colors.grey[100],
-                    ),
-                    // margin: EdgeInsets.all(10),
-                    child: CountryCodePicker(
-                      // onChanged: print,
-
-                      initialSelection: 'ID',
-
-                      showCountryOnly: true,
-                      alignLeft: false,
-                    ),
-                  ),
+                  GrabSelectCountry(),
                   SizedBox(width: 10),
                   Container(
                     width: MediaQuery.of(context).size.width * 0.6,
@@ -119,6 +98,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ],
               ),
+              parent: context,
             ),
             Spacer(flex: 2),
             Opacity(
@@ -131,112 +111,7 @@ class _LoginScreenState extends State<LoginScreen> {
               opacity: isKeyboardShowing ? 0.0 : 1.0,
             ),
             SizedBox(height: 10),
-            Container(
-              width: double.infinity,
-              padding: EdgeInsets.only(
-                bottom: isKeyboardShowing
-                    ? 0
-                    : MediaQuery.of(context).viewPadding.bottom,
-              ),
-              color: isKeyboardShowing
-                  ? Theme.of(context).primaryColor
-                  : Colors.white,
-              child: isKeyboardShowing
-                  ? FlatButton(
-                      child: Center(
-                          child: Text(
-                        "Continue",
-                        style: kGrabWhiteRegularSmall,
-                      )),
-                      onPressed: () {
-                        Navigator.of(context).pushNamed(VerificationScreen.id);
-                      },
-                    )
-                  : Row(
-                      children: <Widget>[
-                        Expanded(
-                          child: Container(
-                            margin: EdgeInsets.symmetric(
-                              horizontal: 10,
-                              vertical: 20,
-                            ),
-                            padding: EdgeInsets.symmetric(
-                              horizontal: 15,
-                              vertical: 15,
-                            ),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(8),
-                                color: Color(0xFF3C5A98),
-                                boxShadow: [
-                                  BoxShadow(
-                                      // blurRadius: 10,
-                                      offset: Offset.fromDirection(1)),
-                                ]),
-                            child: Row(
-                              children: <Widget>[
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(5),
-                                  child: Image(
-                                    color: Colors.white,
-                                    width: 30,
-                                    image: AssetImage(
-                                        "assets/images/facebook.png"),
-                                  ),
-                                ),
-                                Spacer(),
-                                Text(
-                                  "Facebook",
-                                  style: kGrabWhiteRegularSmall.copyWith(
-                                      fontSize: 18),
-                                ),
-                                Spacer(),
-                              ],
-                            ),
-                          ),
-                        ),
-                        Expanded(
-                          child: Container(
-                            margin: EdgeInsets.symmetric(
-                              horizontal: 10,
-                              vertical: 20,
-                            ),
-                            padding: EdgeInsets.symmetric(
-                              horizontal: 15,
-                              vertical: 15,
-                            ),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(8),
-                                color: Colors.white,
-                                boxShadow: [
-                                  BoxShadow(
-                                      // blurRadius: 10,
-                                      offset: Offset.fromDirection(1)),
-                                ]),
-                            child: Row(
-                              children: <Widget>[
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(5),
-                                  child: Image(
-                                    // color: Colors.white,
-                                    width: 30,
-                                    image:
-                                        AssetImage("assets/images/google.png"),
-                                  ),
-                                ),
-                                Spacer(),
-                                Text(
-                                  "Google",
-                                  style: kGrabWhiteRegularSmall.copyWith(
-                                      fontSize: 18, color: Colors.grey[700]),
-                                ),
-                                Spacer(),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-            ),
+            SocialMediaAndContinue(isKeyboardShowing: isKeyboardShowing),
           ],
         ),
       ),

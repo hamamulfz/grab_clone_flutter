@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:grab_clone/screens/login_screen.dart';
+import 'package:grab_clone/widgets/grab_logo.dart';
 
 class SplashScreen extends StatefulWidget {
   static const String id = "splash_screen";
@@ -35,13 +36,7 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
       body: Center(
-        child: Image(
-          width: 150,
-          color: Colors.white,
-          image: AssetImage(
-            "assets/images/grab.png",
-          ),
-        ),
+        child: GrabLogo(),
       ),
     );
   }
