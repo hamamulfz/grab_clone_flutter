@@ -1,7 +1,6 @@
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:grab_clone/constant.dart';
-import 'package:grab_clone/screens/splash_screen.dart';
 import 'package:grab_clone/screens/verification_screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -27,6 +26,7 @@ class _LoginScreenState extends State<LoginScreen> {
               padding: EdgeInsets.only(
                 top: MediaQuery.of(context).viewPadding.top,
                 left: fivePercentWidth(context),
+                // bottom: 50,
               ),
               child: Opacity(
                 child: IconButton(
@@ -46,13 +46,19 @@ class _LoginScreenState extends State<LoginScreen> {
                 left: fivePercentWidth(context),
               ),
               child: Opacity(
-                child: GrabLogo(),
+                child: Image(
+                  width: 150,
+                  color: Colors.white,
+                  image: AssetImage("assets/images/grab.png"),
+                ),
                 opacity: isKeyboardShowing ? 0.0 : 1.0,
               ),
             ),
             Spacer(),
-            FivePercentPadding(
-              parent: context,
+            Padding(
+              padding: EdgeInsets.only(
+                left: fivePercentWidth(context),
+              ),
               child: Text(
                 "Welcome!",
                 style: kGrabWhiteBoldMedium,
@@ -235,22 +241,5 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
       ),
     );
-  }
-}
-
-class FivePercentPadding extends StatelessWidget {
-  const FivePercentPadding(
-      {Key key, @required this.parent, @required this.child})
-      : super(key: key);
-  final BuildContext parent;
-  final Widget child;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-        padding: EdgeInsets.only(
-          left: fivePercentWidth(parent),
-        ),
-        child: child);
   }
 }
