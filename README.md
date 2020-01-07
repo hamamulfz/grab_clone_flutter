@@ -1,4 +1,4 @@
-# grab_clone
+# Grab Clone Flutter
 
 A Grab application clone developed with Flutter.
 
