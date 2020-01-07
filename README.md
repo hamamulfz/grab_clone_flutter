@@ -1,16 +1,8 @@
 # grab_clone
 
-A new Flutter project.
+A Grab application clone developed with Flutter.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+## About This Project
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+This project contains some screen of Grab application interface by January 2020. List of screen developed is in picture below.
