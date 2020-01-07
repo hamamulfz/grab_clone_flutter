@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:grab_clone/constant.dart';
+import 'package:grab_clone/screens/bottom_navigation/home_screen.dart';
 import 'package:grab_clone/widgets/grab_bottom_navigation_item.dart';
 
 class MainScreen extends StatefulWidget {
@@ -15,9 +16,7 @@ class _MainScreenState extends State<MainScreen> {
   static ScrollController _hideButtonController;
   int _selectedIndex = 0;
   List<Widget> _widgetOptions = <Widget>[
-    Column(
-      children: <Widget>[Text("Home")],
-    ),
+    HomeScreen(),
     SafeArea(
       child: Text("Activity"),
     ),
@@ -134,9 +133,12 @@ class _MainScreenState extends State<MainScreen> {
         controller: _hideButtonController,
         slivers: <Widget>[
           SliverList(
-            delegate: SliverChildBuilderDelegate((context, index) {
-              return _widgetOptions.elementAt(_selectedIndex);
-            }, childCount: 100),
+            delegate: SliverChildBuilderDelegate(
+              (context, index) {
+                return _widgetOptions.elementAt(_selectedIndex);
+              },
+              childCount: 1,
+            ),
           ),
         ],
       ),

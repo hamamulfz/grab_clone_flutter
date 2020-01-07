@@ -111,7 +111,7 @@ class _LoginScreenState extends State<LoginScreen> {
               opacity: isKeyboardShowing ? 0.0 : 1.0,
             ),
             SizedBox(height: 10),
-            SocialMediaAndContinue(isKeyboardShowing: isKeyboardShowing),
+            GrabSocialMediaAndContinue(isKeyboardShowing: isKeyboardShowing),
           ],
         ),
       ),

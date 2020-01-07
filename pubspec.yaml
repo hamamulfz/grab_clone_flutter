@@ -27,6 +27,8 @@ flutter:
 
   assets:
    - assets/images/
+   - assets/images/pay/
+   - assets/images/feature/
   
   fonts:
     - family: Sanomat Grab Web
