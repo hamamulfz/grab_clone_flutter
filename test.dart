@@ -8,3 +8,10 @@ void main() {
     print('hello $i');
   }
 }
+
+
+void main() {
+  for (var i = 0; i < 5; i++) {
+    print('hello mas imul $i');
+  }
+}
